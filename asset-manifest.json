@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/cscra-webapp/static/css/main.d2159d40.chunk.css",
+    "main.js": "/cscra-webapp/static/js/main.01775995.chunk.js",
+    "main.js.map": "/cscra-webapp/static/js/main.01775995.chunk.js.map",
+    "runtime-main.js": "/cscra-webapp/static/js/runtime-main.63845480.js",
+    "runtime-main.js.map": "/cscra-webapp/static/js/runtime-main.63845480.js.map",
+    "static/js/2.ef6e4e55.chunk.js": "/cscra-webapp/static/js/2.ef6e4e55.chunk.js",
+    "static/js/2.ef6e4e55.chunk.js.map": "/cscra-webapp/static/js/2.ef6e4e55.chunk.js.map",
+    "static/js/3.ef09adef.chunk.js": "/cscra-webapp/static/js/3.ef09adef.chunk.js",
+    "static/js/3.ef09adef.chunk.js.map": "/cscra-webapp/static/js/3.ef09adef.chunk.js.map",
+    "index.html": "/cscra-webapp/index.html",
+    "static/css/main.d2159d40.chunk.css.map": "/cscra-webapp/static/css/main.d2159d40.chunk.css.map",
+    "static/js/2.ef6e4e55.chunk.js.LICENSE.txt": "/cscra-webapp/static/js/2.ef6e4e55.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.63845480.js",
+    "static/js/2.ef6e4e55.chunk.js",
+    "static/css/main.d2159d40.chunk.css",
+    "static/js/main.01775995.chunk.js"
+  ]
+}
