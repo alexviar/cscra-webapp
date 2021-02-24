@@ -5,7 +5,7 @@ type JobForm = {
     name: string,
     isManager: boolean,
     description: string,
-    parentId: string | null
+    unitId: string | null
   }
 }
 const initialState: JobForm = {
@@ -14,7 +14,7 @@ const initialState: JobForm = {
     name: "",
     description: "",
     isManager: false,
-    parentId: null
+    unitId: null
   }
 }
 
@@ -22,6 +22,12 @@ export function jobForm(state=initialState, action: any): JobForm {
   if(action.type == "UPDATE_JOB_FORM"){
     return {
       ...state,
+      ...action.payload
+    } as JobForm
+  }
+  if(action.type == "RESET_JOB_FORM"){
+    return {
+      ...initialState,
       ...action.payload
     } as JobForm
   }

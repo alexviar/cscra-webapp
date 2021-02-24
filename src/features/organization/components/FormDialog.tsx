@@ -3,6 +3,7 @@ import { Modal, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { getModal } from '../selectors/inputs'
 import UnitForm from './UnitForm'
+import JobForm from './JobForm'
 
 export const FormDialog = ()=>{
   const dispatch = useDispatch()
@@ -21,11 +22,9 @@ export const FormDialog = ()=>{
     </Modal.Header>
     <Modal.Body>
       {
-      target == 'unit' ? 
-        <UnitForm /> :
-        target == 'job' ?
-          null :
-          null
+        target == 'unit' ? <UnitForm /> :
+        target == 'job' ? <JobForm /> :
+        null
       }
     </Modal.Body>
     <Modal.Footer>
@@ -39,7 +38,7 @@ export const FormDialog = ()=>{
       }}>
         Cancelar
       </Button>
-      <Button variant="primary" form="unit-form" type="submit">
+      <Button variant="primary" form={target == 'unit' ? 'unit-form' : 'job-form'} type="submit">
         Guardar
       </Button>
     </Modal.Footer>

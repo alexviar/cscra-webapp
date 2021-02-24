@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 export const UnitForm = () => {
   const dispatch = useDispatch()
   const {fields} = useSelector((state:OrganizationAwareState)=>state.organization.ui.unitForm)
-  console.log("Fields", fields)
+  
   return <Form id="unit-form" onSubmit={(e)=>{
     e.preventDefault()
     if(fields.id){
@@ -25,7 +25,7 @@ export const UnitForm = () => {
       dispatch({
         type: "ADD_UNIT",
         payload: {
-          id: Math.round(Math.random()*99999999) +"",//uuidv4().replace("-", ""),
+          id: uuidv4().replaceAll("-", ""),
           name: fields.name,
           description: fields.description,
           parentId: fields.parentId

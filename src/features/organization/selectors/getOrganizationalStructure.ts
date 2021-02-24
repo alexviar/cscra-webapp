@@ -37,7 +37,8 @@ export const getOrganizationalStructureTreeData = createSelector(
               return {
                 key: `job-${j.id}`,
                 title: j.name,
-                icon: FaBriefcase
+                icon: FaBriefcase,
+                isLeaf: true
               }
             })
           ]
@@ -46,7 +47,7 @@ export const getOrganizationalStructureTreeData = createSelector(
     }
 
     const treeData = toTreeData(null)
-    
+    console.log("TreeData", treeData)
     return [
       {
         key: "root",

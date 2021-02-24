@@ -10,6 +10,7 @@ export type Unit = {
 export type Job = {
   id: string,
   name: string,
+  description: string,
   isManager: boolean,
   unitId: string
 }

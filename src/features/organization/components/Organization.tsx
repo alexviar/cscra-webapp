@@ -4,6 +4,7 @@ import {FaSitemap, FaBriefcase} from 'react-icons/fa'
 import './tree.css'
 import UnitForm from './UnitForm'
 import { UnitDetails } from './UnitDetails'
+import { JobDetails } from './JobDetails'
 import { OrganizationalStructureTree } from './OrganizationalStructureTree'
 import { FormDialog } from './FormDialog'
 
@@ -14,6 +15,7 @@ export const Organization = ()=>{
       <OrganizationalStructureTree />
       <div className="p-3 border flex-grow-1"  style={{marginLeft: "11rem"}}>
         <UnitDetails />
+        <JobDetails />
       </div>
     </div>
     <FormDialog></FormDialog>

@@ -5,3 +5,7 @@
   bottom: 0;
   overflow: auto
 }
+
+span.rc-tree-iconEle.rc-tree-icon__customize {
+  vertical-align: initial !important;
+}

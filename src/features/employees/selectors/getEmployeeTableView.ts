@@ -5,15 +5,15 @@ import { getEmployees } from "./inputs";
 
 export const getEmployeeTableView = createSelector(
   getEmployees,
-  getUnits,
   getJobs,
+  getUnits,
   (employees, jobs, units)=>{
     return employees.map(employee => {
       const job = jobs.find(job => job.id == employee.contract.jobId)
       return {
         id: employee.id,
         dni: employee.dni,
-        fullName: `${employee.lastname} ${employee.middlename} ${employee.name}`,
+        fullName: `${employee.name} ${employee.middlename} ${employee.lastname}`,
         gender: employee.gender,
         dateOfBirth: employee.dateOfBirth,
         nationality: employee.nationality,
@@ -27,7 +27,6 @@ export const getEmployeeTableView = createSelector(
           },
           salary: (employee.contract.salary/100).toFixed(2)
         }
-
       }
     })
   }

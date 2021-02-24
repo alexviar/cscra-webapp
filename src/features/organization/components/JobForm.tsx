@@ -16,8 +16,9 @@ export const JobForm = () => {
         payload: {
           id: fields.id,
           name: fields.name,
+          isManager: fields.isManager,
           description: fields.description,
-          unitId: fields.parentId
+          unitId: fields.unitId
         }
       })
     }
@@ -25,10 +26,11 @@ export const JobForm = () => {
       dispatch({
         type: "ADD_JOB",
         payload: {
-          id: uuidv4(),
+          id: uuidv4().replaceAll("-", ""),
           name: fields.name,
+          isManager: fields.isManager,
           description: fields.description,
-          parentId: fields.parentId
+          unitId: fields.unitId
         }
       })
     }
@@ -50,6 +52,20 @@ export const JobForm = () => {
             fields: {
               ...fields,
               name: value
+            }
+          }
+        })
+      }}/>
+    </Form.Group>
+    <Form.Group controlId="is-manager">
+      <Form.Check type="checkbox" label="Es administrador" checked={fields.isManager} onChange={(e)=>{
+        const value = e.target.value
+        dispatch({
+          type: "UPDATE_JOB_FORM",
+          payload: {
+            fields: {
+              ...fields,
+              isManager: !fields.isManager
             }
           }
         })

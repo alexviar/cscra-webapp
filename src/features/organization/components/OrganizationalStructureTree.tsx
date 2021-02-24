@@ -23,8 +23,10 @@ export const OrganizationalStructureTree = ()=>{
 
   return <>
     <Tree className="os-tree position-absolute border"
-      switcherIcon={(props)=> props.data?.children ? (props.expanded ? <BsCaretDown/>: <BsCaretRight/>) : null}
-      draggable treeData={treeData} defaultExpandedKeys={["root"]}
+      switcherIcon={(props)=> props.data?.children ? (props.expanded ? <BsCaretDown/>: <BsCaretRight/>) : undefined}
+      draggable 
+      treeData={treeData}
+      defaultExpandedKeys={["root"]}
       multiple={false}
       onSelect={(selectedKeys)=>{
         if(selectedKeys.length){
@@ -44,13 +46,16 @@ export const OrganizationalStructureTree = ()=>{
       onRightClick={(e)=>{
         show(e.event, {
           props: {
-            nodeId: e.node.key
+            nodeId: e.node.key,
+            isLeaf: e.node.isLeaf
           }
         })
       }}
     />
     <Menu id={MENU_ID}>
-      <Submenu label="Crear" arrow={<BsCaretRight/>}>
+      <Submenu hidden={({props})=>{
+        return props.isLeaf
+      }} label="Crear" arrow={<BsCaretRight/>}>
         <Item onClick={function({props}){
           const [target, id] = props.nodeId == "root" ? [null, null] : props.nodeId.split("-")
           dispatch({
@@ -67,7 +72,7 @@ export const OrganizationalStructureTree = ()=>{
           dispatch({
             type: "PREPARE_NEW_JOB_FORM",
             payload: {
-              parentId: id,
+              unitId: id,
             }
           })
         }}>Cargo</Item>

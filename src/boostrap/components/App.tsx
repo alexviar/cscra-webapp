@@ -29,6 +29,7 @@ export default ()=>{
       <Nav className="ml-auto">
         <OverlayTrigger
           trigger="click"
+          rootClose
           placement="bottom"
           overlay={
             <Popover id="apps">

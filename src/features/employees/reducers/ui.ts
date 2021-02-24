@@ -4,6 +4,7 @@ type EmployeeFormState = {
   fields: {
     dni: string,
     dniComplement: string,
+    dniIssuedAt: string,
     name: string,
     middlename: string,
     lastname: string,
@@ -24,6 +25,7 @@ const initialEFState: EmployeeFormState = {
   fields: {
     dni: "",
     dniComplement: "",
+    dniIssuedAt: "",
     name: "",
     middlename: "",
     lastname: "",
@@ -40,7 +42,7 @@ const initialEFState: EmployeeFormState = {
     afp: ""
   }
 }
-function employeeForm(state: EmployeeFormState = initialEFState, action: any){
+function employeeForm(state: EmployeeFormState = initialEFState, action: any): EmployeeFormState{
   if(action.type == "UPDATE_EMPLOYEE_FORM"){
     return {
       ...state,

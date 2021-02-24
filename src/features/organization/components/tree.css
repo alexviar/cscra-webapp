@@ -6,8 +6,9 @@
   border-color: cyan;
 }
 .rc-tree .rc-tree-treenode {
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
+  display: inline-block;
   margin: 0;
   padding: 0;
   line-height: 24px;
@@ -56,8 +57,9 @@
 }
 .rc-tree .rc-tree-treenode .rc-tree-node-content-wrapper {
   position: relative;
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
+  display: inline-block;
   height: 24px;
   margin: 0;
   padding: 0;

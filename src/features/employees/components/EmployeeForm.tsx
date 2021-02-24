@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Form, Button, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { getOwnedJobs } from '../../organization/selectors/getOrganizationalStructure'
@@ -6,6 +6,7 @@ import { getUnits } from '../../organization/selectors/inputs'
 import {getEmployeeFormState} from "../selectors"
 import { Employee } from '../state'
 import {v4 as uuidv4} from 'uuid'
+import { Redirect, useRouteMatch, useLocation } from 'react-router-dom'
 
 export const EmployeeForm = ()=>{
   const dispatch = useDispatch()
@@ -35,19 +36,19 @@ export const EmployeeForm = ()=>{
       e.preventDefault()
       const employee: Employee = {
         id: uuidv4(),
-        dni: fields.dni,
+        dni: `${fields.dni}${fields.dniComplement ? "-" : ""}${fields.dniComplement}${fields.dniIssuedAt ? " " : ""}${fields.dniIssuedAt}`,
         name: fields.name,
         middlename: fields.middlename,
         lastname: fields.lastname,
-        gender: fields.gender,
+        gender: fields.gender as "Masculino" | "Femenino",
         dateOfBirth: fields.dateOfBirth,
-        nationality: fields.nacionality,
+        nationality: fields.nacionality as "Boliviana" | "Extranjera",
         afp: fields.afp,
         contract: {
           type: fields.contractType,
           startDate: fields.startDate,
           jobId: fields.jobId,
-          salary: fields.salary
+          salary: Math.round(parseFloat(fields.salary)*100)
         }
       }
       dispatch({
@@ -61,13 +62,28 @@ export const EmployeeForm = ()=>{
       <fieldset>
         <legend>Informacion Personal</legend>
         <Form.Row>
-          <Form.Group as={Col} xs={8} md={4} controlId="employee-dni">
+          <Form.Group as={Col} sm={6} md={4} controlId="employee-dni">
             <Form.Label>Carnet de Identidad</Form.Label>
             <Form.Control type="text" value={fields.dni} onChange={onChange("dni")} />
           </Form.Group>
-          <Form.Group as={Col} xs={4} md={2} controlId="employee-dni-complement">
+          <Form.Group as={Col} xs={6} sm={3} md={2} controlId="employee-dni-complement">
             <Form.Label>Complemento</Form.Label>
             <Form.Control type="text" value={fields.dniComplement} onChange={onChange("dniComplement")} />
+          </Form.Group>
+          <Form.Group as={Col} xs={6} sm={3} md={2} controlId="employee-dni-issued-at">
+            <Form.Label>Expedido en</Form.Label>
+            <Form.Control as="select" value={fields.dniIssuedAt} onChange={onChange("dniIssuedAt")} >
+            <option></option>
+            <option value="BN">Beni</option>
+            <option value="CH">Chuquisaca</option>
+            <option value="CB">Cochabamba</option>
+            <option value="LP">La Paz</option>
+            <option value="OR">Oruro</option>
+            <option value="PN">Pando</option>
+            <option value="PT">Potosí</option>
+            <option value="SC">Santa Cruz</option>
+            <option value="TJ">Tarija</option>
+            </Form.Control>
           </Form.Group>
         </Form.Row>
         <Form.Row className="d-none">
@@ -75,6 +91,8 @@ export const EmployeeForm = ()=>{
             <Button>Buscar</Button>
           </Form.Group>
         </Form.Row>
+
+        <hr/>
 
         <Form.Row>
           <Form.Group as={Col} md={4} controlId="employee-name">
@@ -163,7 +181,13 @@ export const EmployeeForm = ()=>{
         <Form.Row>
           <Form.Group as={Col} controlId="employee-afp">
             <Form.Label>Empresa</Form.Label>
-            <Form.Control type="text" value={fields.afp} onChange={onChange("afp")} />
+            <Form.Control as="select" value={fields.afp} onChange={onChange("afp")} >
+              <option></option>
+              <option value="Prevision">Previsión</option>
+              <option value="Futuro">Futuro</option>
+              <option value="No aporta">No aporta</option>
+              <option></option>
+            </Form.Control>
           </Form.Group>
         </Form.Row>
       </fieldset>

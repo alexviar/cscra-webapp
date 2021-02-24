@@ -8,7 +8,7 @@ export type Employee = {
   lastname: string
   gender: "Masculino" | "Femenino",
   dateOfBirth: string,
-  nationality: "Boliviana" | "Extrangera",
+  nationality: "Boliviana" | "Extranjera",
   afp: string,
   contract: {
     type: string,

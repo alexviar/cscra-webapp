@@ -4,17 +4,17 @@ import { Employee } from '../state'
 const initialEmployees: Employee[] = [
   {
     id: "1",
-    dni: "12345678",
+    dni: "12345678 SC",
     name: "Joaquin",
     middlename: "Chumacero",
     lastname: "Yupanqui",
-    dateOfBirth: "03/09/77",
+    dateOfBirth: "1977-09-03",
     gender: "Masculino",
     nationality: "Boliviana",
-    afp: "AFP Futuro",
+    afp: "Futuro",
     contract: {
       type: "contrato laboral",
-      startDate: "04/09/19",
+      startDate: "2019-09-10",
       jobId: "1",
       salary: 500000
     }
