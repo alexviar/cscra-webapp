@@ -1,0 +1,7 @@
+.os-tree {
+  position: absolute;
+  width: 11rem;
+  top: 0;
+  bottom: 0;
+  overflow: auto
+}
