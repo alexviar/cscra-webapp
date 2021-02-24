@@ -1,22 +1,25 @@
 {
   "files": {
-    "main.css": "/cscra-webapp/static/css/main.d2159d40.chunk.css",
-    "main.js": "/cscra-webapp/static/js/main.d55b7892.chunk.js",
-    "main.js.map": "/cscra-webapp/static/js/main.d55b7892.chunk.js.map",
-    "runtime-main.js": "/cscra-webapp/static/js/runtime-main.c3a0a783.js",
-    "runtime-main.js.map": "/cscra-webapp/static/js/runtime-main.c3a0a783.js.map",
-    "static/js/2.3aedce48.chunk.js": "/cscra-webapp/static/js/2.3aedce48.chunk.js",
-    "static/js/2.3aedce48.chunk.js.map": "/cscra-webapp/static/js/2.3aedce48.chunk.js.map",
-    "static/js/3.ace0a0f1.chunk.js": "/cscra-webapp/static/js/3.ace0a0f1.chunk.js",
-    "static/js/3.ace0a0f1.chunk.js.map": "/cscra-webapp/static/js/3.ace0a0f1.chunk.js.map",
+    "main.css": "/cscra-webapp/static/css/main.09b2dad4.chunk.css",
+    "main.js": "/cscra-webapp/static/js/main.6ede8098.chunk.js",
+    "main.js.map": "/cscra-webapp/static/js/main.6ede8098.chunk.js.map",
+    "runtime-main.js": "/cscra-webapp/static/js/runtime-main.b2d8d4cf.js",
+    "runtime-main.js.map": "/cscra-webapp/static/js/runtime-main.b2d8d4cf.js.map",
+    "static/css/2.4b43fb90.chunk.css": "/cscra-webapp/static/css/2.4b43fb90.chunk.css",
+    "static/js/2.744015c2.chunk.js": "/cscra-webapp/static/js/2.744015c2.chunk.js",
+    "static/js/2.744015c2.chunk.js.map": "/cscra-webapp/static/js/2.744015c2.chunk.js.map",
+    "static/js/3.ca2b293c.chunk.js": "/cscra-webapp/static/js/3.ca2b293c.chunk.js",
+    "static/js/3.ca2b293c.chunk.js.map": "/cscra-webapp/static/js/3.ca2b293c.chunk.js.map",
     "index.html": "/cscra-webapp/index.html",
-    "static/css/main.d2159d40.chunk.css.map": "/cscra-webapp/static/css/main.d2159d40.chunk.css.map",
-    "static/js/2.3aedce48.chunk.js.LICENSE.txt": "/cscra-webapp/static/js/2.3aedce48.chunk.js.LICENSE.txt"
+    "static/css/2.4b43fb90.chunk.css.map": "/cscra-webapp/static/css/2.4b43fb90.chunk.css.map",
+    "static/css/main.09b2dad4.chunk.css.map": "/cscra-webapp/static/css/main.09b2dad4.chunk.css.map",
+    "static/js/2.744015c2.chunk.js.LICENSE.txt": "/cscra-webapp/static/js/2.744015c2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.c3a0a783.js",
-    "static/js/2.3aedce48.chunk.js",
-    "static/css/main.d2159d40.chunk.css",
-    "static/js/main.d55b7892.chunk.js"
+    "static/js/runtime-main.b2d8d4cf.js",
+    "static/css/2.4b43fb90.chunk.css",
+    "static/js/2.744015c2.chunk.js",
+    "static/css/main.09b2dad4.chunk.css",
+    "static/js/main.6ede8098.chunk.js"
   ]
 }
