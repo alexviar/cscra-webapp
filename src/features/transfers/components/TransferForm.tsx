@@ -320,14 +320,14 @@ function TransferenciaExternaForm() {
       <Modal.Body>
        {renderPdf()}
       </Modal.Body>
-      <Modal.Footer>
+      {/* <Modal.Footer>
         <Button>Close</Button>
-      </Modal.Footer>
+      </Modal.Footer> */}
     </Modal>
     </>
   }
 
-  return <>
+  return <div className="d-flex flex-column bg-white rounded-lg shadow-sm m-2 p-3 flex-grow-1">
     <h1>Transferencia externa</h1>
     {renderForm()}
     <Modal
@@ -345,7 +345,7 @@ function TransferenciaExternaForm() {
         <Spinner animation="border" />
       </Modal.Body>
     </Modal>
-  </>
+  </div>
 }
 
 const App = TransferenciaExternaForm;
