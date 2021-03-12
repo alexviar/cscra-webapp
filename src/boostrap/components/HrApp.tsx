@@ -6,15 +6,17 @@ import {Sidebar} from '../../commons/components/Sidebar'
 import Organization from '../../features/organization/components/Organization'
 import {EmployeesList} from '../../features/employees/components/EmployeesList'
 import {EmployeeForm} from '../../features/employees/components/EmployeeForm'
-import { FaBuilding } from 'react-icons/fa'
+import { FaBuilding, FaCalculator } from 'react-icons/fa'
 import { BsPersonFill, BsPersonPlusFill } from 'react-icons/bs'
+import { GiReceiveMoney, GiPayMoney } from 'react-icons/gi'
+import { GrMoney } from 'react-icons/gr'
+import SidebarLayout from '../../commons/components/layouts/SidebarLayout'
+import PayrollRoutes from '../../features/payrolls/components/PayrollRoutes'
 
 export const HrApp = ()=>{
-  const showSidebar = useSelector((state:any)=>state.main.showSidebar)
   const { path, url } = useRouteMatch()
-  
-  return <div className={"position-relative d-flex flex-grow-1 bg-light" + (showSidebar ? "" : " toggled")}  id="wrapper">
-    <Sidebar className="bg-white shadow-sm " style={{height: "initial"}} items={[
+  return <SidebarLayout sidebar={{
+    items: [
       {
         id: "organizational-structure",
         icon: <FaBuilding />,
@@ -34,20 +36,52 @@ export const HrApp = ()=>{
             title: "Registrar"
           }
         ]
+      },
+      {
+        id: "payroll",
+        icon: <GrMoney />,
+        path: `${url}/nominas`,
+        title: "Nominas",
+        items: [
+          {
+            id: "compute",
+            icon: <FaCalculator />,
+            path: `${url}/nominas/calcular`,
+            title: "Calcular nomina"
+          },
+          {
+            id: "payroll-types",
+            icon: <BsPersonPlusFill />,
+            path: `${url}/nominas/tipos`,
+            title: "Tipos de nominas"
+          },
+          {
+            id: "payroll-wages",
+            icon: <GiReceiveMoney />,
+            path: `${url}/nominas/percepciones`,
+            title: "Bonos"
+          },
+          {
+            id: "payroll-deductions",
+            icon: <GiPayMoney />,
+            path: `${url}/nominas/deducciones`,
+            title: "Deducciones"
+          }
+        ]
       }
-    ]}/>
-  <Container className="d-flex flex-column flex-grow-1" style={{overflow: "auto"}}>
+    ]
+  }}>
     <Switch>
       <Route exact path={path}>
           <Redirect to={`${path}/organizacion`} />
       </Route>
       <Route  path={`${path}/organizacion`}><Organization /></Route>
       <Route  path={`${path}/empleados/registrar`}><EmployeeForm /></Route>
+      <Route  path={`${path}/empleados/:id/ver`}><EmployeeForm /></Route>
       <Route  exact path={`${path}/empleados`}><EmployeesList /></Route>
+      <Route path={`${path}/nominas`}><PayrollRoutes /></Route>
     </Switch>
-  </Container>
-</div>
-
+  </SidebarLayout>
 }
 
 export default HrApp

@@ -1,5 +1,6 @@
 import React from "react"
 import { Table, Button } from 'react-bootstrap'
+import { BsEyeFill, BsTrashFill } from "react-icons/bs"
 import { useSelector } from "react-redux"
 import { Link, useRouteMatch } from "react-router-dom"
 import { getEmployeeTableView } from "../selectors"
@@ -30,6 +31,7 @@ export const EmployeesList = ()=>{
           <th >Cargo</th>
           <th >Salario</th>
           <th >Afp</th>
+          <th ></th>
         </tr>
       </thead>
       <tbody>
@@ -50,6 +52,10 @@ export const EmployeesList = ()=>{
             <td className="text-nowrap">{e.contract.job.name}</td>
             <td>{e.contract.salary}</td>
             <td>{e.afp}</td>
+            <td>
+              <Button className="btn-icon d-inline" variant="link" ><BsEyeFill /></Button>
+              {/* <Button className="btn-icon d-inline" variant="link" ><BsTrashFill /></Button> */}
+            </td>
           </tr>
         })}
       </tbody>

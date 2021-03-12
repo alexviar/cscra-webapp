@@ -8,9 +8,11 @@ type Paciente = {
   id: number,
   carnet: string,
   nombre: string,
+  fechaExt: string,
+  estado: number,
   empresa: {
     nombre: string,
-    estado: string
+    estado: number
   }
 }
 
@@ -24,9 +26,11 @@ const initial = {
   id: 0,
   carnet: "",
   nombre: "",
+  fechaExt: "",
+  estado: -1,
   empresa: {
     nombre: "",
-    estado: ""
+    estado: -1
   }
 }
 
@@ -51,9 +55,13 @@ export default ({disabled, paciente, onChange}: Props) => {
 
   useEffect(()=>{
     if(stateOfGetPaciente.completed && !stateOfGetPaciente.error){
-      const data = stateOfGetPaciente.data as Array<Paciente>
+      const data = stateOfGetPaciente.data
       if(data.length){
-        onChange(data[0])
+        const {fecha_ext, ...rest} = data[0];
+        onChange({
+          ...rest,
+          fechaExt: fecha_ext
+        })
       }
     }
   }, [stateOfGetPaciente])
@@ -76,6 +84,23 @@ export default ({disabled, paciente, onChange}: Props) => {
     </Form.Group>
   </Form.Row>
   <Form.Row>
+    <Form.Group as={Col} sm controlId="carnet_paciente">
+      <Form.Label>Fecha de Ext.</Form.Label>
+      <Form.Control as={LoadingInput} loading={stateOfGetPaciente.completed===false}
+        placeholder={stateOfGetPaciente.completed===false ? "Buscando":  stateOfGetPaciente.error ? "Error" : ""}
+        readOnly type="text" value={paciente.fechaExt}
+        isInvalid={paciente.fechaExt!=null && (Date.now() >= (new Date(paciente.fechaExt)).getTime())} 
+      />
+    </Form.Group>
+    {/* <Form.Group as={Col} sm={9} controlId="nombre_paciente">
+      <Form.Label>Estado de afiliación</Form.Label>
+      <Form.Control  as={LoadingInput} loading={stateOfGetPaciente.completed===false}
+        placeholder={stateOfGetPaciente.completed===false ? "Buscando":  stateOfGetPaciente.error ? "Error" : ""}
+        readOnly type="text" value={paciente.estado == 1 ? "Activo" : paciente.estado == 1 ? "Baja" : ""}
+        isInvalid={paciente.estado == 2}  />
+    </Form.Group> */}
+  </Form.Row>
+  <Form.Row>
     <Form.Group as={Col} sm={9} controlId="empresa">
       <Form.Label>Empresa</Form.Label>
       <Form.Control as={LoadingInput} loading={stateOfGetPaciente.completed===false}
@@ -83,10 +108,10 @@ export default ({disabled, paciente, onChange}: Props) => {
         readOnly type="text" value={paciente.empresa.nombre.toUpperCase()} />
     </Form.Group>
     <Form.Group as={Col} sm controlId="estado">
-      <Form.Label>Estado</Form.Label>
+      <Form.Label>Estado de la empresa</Form.Label>
       <Form.Control  as={LoadingInput} loading={stateOfGetPaciente.completed===false}
         placeholder={stateOfGetPaciente.completed===false ? "Buscando":  stateOfGetPaciente.error ? "Error" : ""}
-        readOnly type="text" isInvalid={paciente.empresa.estado=="Mora"} value={paciente.empresa.estado.toUpperCase()} />
+        readOnly type="text" isInvalid={paciente.empresa.estado==2} value={paciente.empresa.estado == 1 ? "Al Día" : paciente.empresa.estado == 2 ? "Mora" : ""} />
     </Form.Group>
   </Form.Row>
 </fieldset>

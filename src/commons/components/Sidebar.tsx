@@ -9,7 +9,32 @@ type MenuItem = {
   icon?: React.ReactNode,
   items?: MenuItem[]
 }
-type SidebarProps = ComponentProps<"div"> & {
+
+const SidebarItem = (item: MenuItem)=>{
+  return <>
+    <Link to={item.path} 
+      className="list-group-item list-group-item-action border-0 text-nowrap"
+      style={{
+        padding: ".5rem 1rem"
+      }}
+      key={item.id}>
+        {item.icon}<span style={{verticalAlign: 'middle', marginLeft: '0.5rem'}}>{item.title}</span>
+    </Link>
+    {item.items && item.items.map(subitem=>{
+      return <Link to={subitem.path} 
+        style={{
+          padding: ".5rem 1rem",
+          paddingLeft: "2rem"
+        }}
+        className="list-group-item list-group-item-action border-0 text-nowrap" 
+        key={subitem.id}>
+          {subitem.icon}<span style={{verticalAlign: 'middle', marginLeft: '0.5rem'}}>{subitem.title}</span>
+      </Link>
+    })}
+  </>
+}
+
+export type SidebarProps = ComponentProps<"div"> & {
   side?: 'left' | 'right',
   title?: string | JsxElement,
   items?: MenuItem[],
@@ -22,27 +47,7 @@ export const Sidebar = (props: SidebarProps) => {
     <div className="sidebar-heading">{title}</div>
     <div className="list-group">
       {items.map(item=>(
-        <>
-          <Link to={item.path} 
-            className="list-group-item list-group-item-action border-0 text-nowrap"
-            style={{
-              padding: ".5rem 1rem"
-            }}
-            key={item.id}>
-              {item.icon}{renderItem ? renderItem(item):<span style={{verticalAlign: 'middle', marginLeft: '0.5rem'}}>{item.title}</span>}
-          </Link>
-          {item.items && item.items.map(subitem=>{
-            return <Link to={subitem.path} 
-              style={{
-                padding: ".5rem 1rem",
-                paddingLeft: "2rem"
-              }}
-              className="list-group-item list-group-item-action border-0 text-nowrap" 
-              key={subitem.id}>
-                {subitem.icon}{renderItem ? renderItem(item):<span style={{verticalAlign: 'middle', marginLeft: '0.5rem'}}>{subitem.title}</span>}
-            </Link>
-          })}
-        </>
+        <SidebarItem key={item.id} {...item} />
       ))}      
     </div>
     {/* <div className="list-group list-group-flush">

@@ -1,5 +1,5 @@
 import React, { useCallback, useState, useEffect, useRef} from 'react';
-import { Form, Button, Table, FormControlProps, Spinner, Modal } from 'react-bootstrap'
+import { Form, Button, Table, FormControlProps, Spinner, Modal, Alert } from 'react-bootstrap'
 import { FaMinus as FaTrash, FaPlus } from 'react-icons/fa'
 import PacientFieldset from './PacientFieldset'
 import { PDFViewer } from './../../../commons/components'
@@ -27,9 +27,11 @@ type FormState = {
     id: number,
     carnet: string,
     nombre: string,
+    fechaExt: string,
+    estado: number,
     empresa: {
       nombre: string,
-      estado: string
+      estado: number
     }
   },
   doctor: {
@@ -56,9 +58,11 @@ function TransferenciaExternaForm() {
       id: 0,
       carnet: "",
       nombre: "",
+      fechaExt: "",
+      estado: -1,
       empresa: {
         nombre: "",
-        estado: ""
+        estado: -1
       },
     },
     doctor: {
@@ -72,6 +76,8 @@ function TransferenciaExternaForm() {
     },
     servicios: []
   })
+
+  const [dialogVisible, showDialog] = useState(false)
 
   const [servicioSolicitado, updateServiciosSolicitado] = useState({
     id: 0,
@@ -97,6 +103,7 @@ function TransferenciaExternaForm() {
 
   const [stateOfSubmit, submit] = useFetch(()=>{
     return fetch(baseUrl+"/transferencias", {
+      // credentials: 'include',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -163,6 +170,13 @@ function TransferenciaExternaForm() {
     }
   }, [formState.servicios, stateOfLoadInitData])
 
+
+  useEffect(()=>{
+    if(stateOfSubmit.data && !stateOfSubmit.error){
+      showDialog(true)
+    }
+  }, [stateOfSubmit])
+
   const renderServicios = ()=>{
     return formState.servicios.map((value, index)=>(
       <tr>
@@ -181,7 +195,15 @@ function TransferenciaExternaForm() {
 
   const renderPdf = () => {
     const url = stateOfSubmit.data && stateOfSubmit.data.url
-    return url ? <PDFViewer url={url} height={400}></PDFViewer> : null
+    if(url)
+      return url ? <PDFViewer url={url} height={400}></PDFViewer> : null
+    else{
+      // return <p>{JSON.stringify(stateOfSubmit.data)}</p>
+      return <Alert variant="danger" >
+        <p>{stateOfSubmit.data?.message}</p>
+        <p>{JSON.stringify(stateOfSubmit.data?.errors)}</p>
+      </Alert>
+    }
   }
   console.log("FormState", formState)
   const renderForm = () => {
@@ -281,7 +303,11 @@ function TransferenciaExternaForm() {
       </Button>
     </Form>
     <Modal
-      show={stateOfSubmit.data && !stateOfSubmit.error}
+      show={dialogVisible}
+      onHide={()=>{
+        console.log("On Hide")
+        showDialog(false)
+      }}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered

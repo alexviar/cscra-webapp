@@ -28,6 +28,17 @@
   color: #61dafb;
 }
 
+.list-details .list {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 11rem;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+  white-space: nowrap
+}
+
 #root {
   display: flex;
   flex-direction: column;
@@ -83,4 +94,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+td .btn-icon {
+  padding: .05rem .5rem;
 }

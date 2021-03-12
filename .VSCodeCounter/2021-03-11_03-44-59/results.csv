@@ -1,0 +1,110 @@
+"filename", "language", "TypeScript React", "TypeScript", "JavaScript", "JSON", "CSS", "XML", "comment", "blank", "total"
+"d:\Alexander\caja\my-app\src\App.css", "CSS", 0, 0, 0, 0, 88, 0, 0, 14, 102
+"d:\Alexander\caja\my-app\src\ContextMenuExample.tsx", "TypeScript React", 49, 0, 0, 0, 0, 0, 5, 6, 60
+"d:\Alexander\caja\my-app\src\boostrap\components\App.tsx", "TypeScript React", 120, 0, 0, 0, 0, 0, 23, 7, 150
+"d:\Alexander\caja\my-app\src\boostrap\components\HrApp.tsx", "TypeScript React", 85, 0, 0, 0, 0, 0, 0, 2, 87
+"d:\Alexander\caja\my-app\src\boostrap\components\IamApp.tsx", "TypeScript React", 55, 0, 0, 0, 0, 0, 8, 3, 66
+"d:\Alexander\caja\my-app\src\boostrap\components\MedicalApp.tsx", "TypeScript React", 27, 0, 0, 0, 0, 0, 0, 3, 30
+"d:\Alexander\caja\my-app\src\boostrap\reducers\index.ts", "TypeScript", 0, 10, 0, 0, 0, 0, 0, 2, 12
+"d:\Alexander\caja\my-app\src\commons\components\LoadingInput.tsx", "TypeScript React", 13, 0, 0, 0, 0, 0, 0, 2, 15
+"d:\Alexander\caja\my-app\src\commons\components\PDFViewer.tsx", "TypeScript React", 11, 0, 0, 0, 0, 0, 0, 2, 13
+"d:\Alexander\caja\my-app\src\commons\components\Sidebar.tsx", "TypeScript React", 53, 0, 0, 0, 0, 0, 1, 4, 58
+"d:\Alexander\caja\my-app\src\commons\components\index.ts", "TypeScript", 0, 2, 0, 0, 0, 0, 0, 0, 2
+"d:\Alexander\caja\my-app\src\commons\components\layouts\SidebarLayout.tsx", "TypeScript React", 22, 0, 0, 0, 0, 0, 6, 3, 31
+"d:\Alexander\caja\my-app\src\commons\hooks\index.ts", "TypeScript", 0, 51, 0, 0, 0, 0, 0, 4, 55
+"d:\Alexander\caja\my-app\src\commons\services\apiClient.ts", "TypeScript", 0, 18, 0, 0, 0, 0, 1, 6, 25
+"d:\Alexander\caja\my-app\src\configs\app.json", "JSON", 0, 0, 0, 3, 0, 0, 0, 0, 3
+"d:\Alexander\caja\my-app\src\features\auth\components\Login.tsx", "TypeScript React", 103, 0, 0, 0, 0, 0, 5, 5, 113
+"d:\Alexander\caja\my-app\src\features\auth\components\ProtectedRoute.tsx", "TypeScript React", 28, 0, 0, 0, 0, 0, 0, 2, 30
+"d:\Alexander\caja\my-app\src\features\auth\components\auth.css", "CSS", 0, 0, 0, 0, 15, 0, 1, 1, 17
+"d:\Alexander\caja\my-app\src\features\auth\components\index.ts", "TypeScript", 0, 2, 0, 0, 0, 0, 0, 0, 2
+"d:\Alexander\caja\my-app\src\features\auth\reducers\index.ts", "TypeScript", 0, 13, 0, 0, 0, 0, 0, 3, 16
+"d:\Alexander\caja\my-app\src\features\auth\reducers\loadUser.ts", "TypeScript", 0, 10, 0, 0, 0, 0, 0, 0, 10
+"d:\Alexander\caja\my-app\src\features\auth\reducers\login.ts", "TypeScript", 0, 17, 0, 0, 0, 0, 0, 1, 18
+"d:\Alexander\caja\my-app\src\features\auth\reducers\loginForm.ts", "TypeScript", 0, 39, 0, 0, 0, 0, 0, 1, 40
+"d:\Alexander\caja\my-app\src\features\auth\reducers\user.ts", "TypeScript", 0, 12, 0, 0, 0, 0, 0, 1, 13
+"d:\Alexander\caja\my-app\src\features\auth\selectors\inputSelectors.ts", "TypeScript", 0, 5, 0, 0, 0, 0, 0, 0, 5
+"d:\Alexander\caja\my-app\src\features\auth\state\index.ts", "TypeScript", 0, 17, 0, 0, 0, 0, 0, 1, 18
+"d:\Alexander\caja\my-app\src\features\employees\components\EmployeeForm.tsx", "TypeScript React", 189, 0, 0, 0, 0, 0, 0, 8, 197
+"d:\Alexander\caja\my-app\src\features\employees\components\EmployeesList.tsx", "TypeScript React", 61, 0, 0, 0, 0, 0, 1, 2, 64
+"d:\Alexander\caja\my-app\src\features\employees\components\FilterEmployeesForm.tsx", "TypeScript React", 11, 0, 0, 0, 0, 0, 0, 2, 13
+"d:\Alexander\caja\my-app\src\features\employees\reducers\entities.ts", "TypeScript", 0, 50, 0, 0, 0, 0, 0, 2, 52
+"d:\Alexander\caja\my-app\src\features\employees\reducers\index.ts", "TypeScript", 0, 9, 0, 0, 0, 0, 0, 4, 13
+"d:\Alexander\caja\my-app\src\features\employees\reducers\ui.ts", "TypeScript", 0, 54, 0, 0, 0, 0, 0, 6, 60
+"d:\Alexander\caja\my-app\src\features\employees\selectors\getEmployeeTableView.ts", "TypeScript", 0, 31, 0, 0, 0, 0, 0, 4, 35
+"d:\Alexander\caja\my-app\src\features\employees\selectors\index.ts", "TypeScript", 0, 2, 0, 0, 0, 0, 0, 0, 2
+"d:\Alexander\caja\my-app\src\features\employees\selectors\inputs.ts", "TypeScript", 0, 3, 0, 0, 0, 0, 0, 1, 4
+"d:\Alexander\caja\my-app\src\features\employees\state\index.ts", "TypeScript", 0, 21, 0, 0, 0, 0, 0, 2, 23
+"d:\Alexander\caja\my-app\src\features\iam\components\IamRoutes.tsx", "TypeScript React", 27, 0, 0, 0, 0, 0, 0, 2, 29
+"d:\Alexander\caja\my-app\src\features\iam\components\RoleDetails.tsx", "TypeScript React", 6, 0, 0, 0, 0, 0, 43, 3, 52
+"d:\Alexander\caja\my-app\src\features\iam\components\RoleForm.tsx", "TypeScript React", 13, 0, 0, 0, 0, 0, 208, 7, 228
+"d:\Alexander\caja\my-app\src\features\iam\components\RolesIndex.tsx", "TypeScript React", 6, 0, 0, 0, 0, 0, 23, 2, 31
+"d:\Alexander\caja\my-app\src\features\iam\components\RolesList.tsx", "TypeScript React", 9, 0, 0, 0, 0, 0, 52, 2, 63
+"d:\Alexander\caja\my-app\src\features\iam\components\UsersIndex.tsx", "TypeScript React", 93, 0, 0, 0, 0, 0, 29, 5, 127
+"d:\Alexander\caja\my-app\src\features\iam\components\UsersPagination.tsx", "TypeScript React", 49, 0, 0, 0, 0, 0, 17, 7, 73
+"d:\Alexander\caja\my-app\src\features\iam\reducers\entities\index.ts", "TypeScript", 0, 5, 0, 0, 0, 0, 0, 1, 6
+"d:\Alexander\caja\my-app\src\features\iam\reducers\entities\users.ts", "TypeScript", 0, 9, 0, 0, 0, 0, 0, 1, 10
+"d:\Alexander\caja\my-app\src\features\iam\reducers\index.ts", "TypeScript", 0, 13, 0, 0, 0, 0, 0, 3, 16
+"d:\Alexander\caja\my-app\src\features\iam\reducers\requests\index.ts", "TypeScript", 0, 5, 0, 0, 0, 0, 0, 1, 6
+"d:\Alexander\caja\my-app\src\features\iam\reducers\requests\loadUsers.ts", "TypeScript", 0, 19, 0, 0, 0, 0, 0, 0, 19
+"d:\Alexander\caja\my-app\src\features\iam\reducers\ui\index.ts", "TypeScript", 0, 5, 0, 0, 0, 0, 0, 1, 6
+"d:\Alexander\caja\my-app\src\features\iam\reducers\ui\usersPagination.ts", "TypeScript", 0, 25, 0, 0, 0, 0, 0, 0, 25
+"d:\Alexander\caja\my-app\src\features\iam\selectors\getUsersTableView.ts", "TypeScript", 0, 8, 0, 0, 0, 0, 0, 1, 9
+"d:\Alexander\caja\my-app\src\features\iam\selectors\index.ts", "TypeScript", 0, 1, 0, 0, 0, 0, 0, 0, 1
+"d:\Alexander\caja\my-app\src\features\iam\selectors\inputSelectors.ts", "TypeScript", 0, 4, 0, 0, 0, 0, 0, 1, 5
+"d:\Alexander\caja\my-app\src\features\iam\services\index.ts", "TypeScript", 0, 23, 0, 0, 0, 0, 0, 1, 24
+"d:\Alexander\caja\my-app\src\features\organization\actions\index.ts", "TypeScript", 0, 85, 0, 0, 0, 0, 2, 10, 97
+"d:\Alexander\caja\my-app\src\features\organization\components\FormDialog.tsx", "TypeScript React", 44, 0, 0, 0, 0, 0, 0, 2, 46
+"d:\Alexander\caja\my-app\src\features\organization\components\JobDetails.tsx", "TypeScript React", 13, 0, 0, 0, 0, 0, 0, 2, 15
+"d:\Alexander\caja\my-app\src\features\organization\components\JobForm.tsx", "TypeScript React", 89, 0, 0, 0, 0, 0, 0, 3, 92
+"d:\Alexander\caja\my-app\src\features\organization\components\Organization.tsx", "TypeScript React", 23, 0, 0, 0, 0, 0, 0, 2, 25
+"d:\Alexander\caja\my-app\src\features\organization\components\OrganizationalStructureTree.tsx", "TypeScript React", 97, 0, 0, 0, 0, 0, 2, 5, 104
+"d:\Alexander\caja\my-app\src\features\organization\components\UnitDetails.tsx", "TypeScript React", 59, 0, 0, 0, 0, 0, 0, 3, 62
+"d:\Alexander\caja\my-app\src\features\organization\components\UnitForm.tsx", "TypeScript React", 72, 0, 0, 0, 0, 0, 0, 5, 77
+"d:\Alexander\caja\my-app\src\features\organization\components\organization.css", "CSS", 0, 0, 0, 0, 10, 0, 0, 1, 11
+"d:\Alexander\caja\my-app\src\features\organization\components\tree.css", "CSS", 0, 0, 0, 0, 192, 0, 4, 2, 198
+"d:\Alexander\caja\my-app\src\features\organization\reducers\entities.ts", "TypeScript", 0, 118, 0, 0, 0, 0, 0, 4, 122
+"d:\Alexander\caja\my-app\src\features\organization\reducers\forms\jobForm.ts", "TypeScript", 0, 33, 0, 0, 0, 0, 0, 2, 35
+"d:\Alexander\caja\my-app\src\features\organization\reducers\forms\unitForm.ts", "TypeScript", 0, 25, 0, 0, 0, 0, 0, 3, 28
+"d:\Alexander\caja\my-app\src\features\organization\reducers\index.ts", "TypeScript", 0, 9, 0, 0, 0, 0, 0, 3, 12
+"d:\Alexander\caja\my-app\src\features\organization\reducers\ui.ts", "TypeScript", 0, 27, 0, 0, 0, 0, 0, 3, 30
+"d:\Alexander\caja\my-app\src\features\organization\selectors\getOrganizationalStructure.ts", "TypeScript", 0, 54, 0, 0, 0, 0, 2, 5, 61
+"d:\Alexander\caja\my-app\src\features\organization\selectors\getSelectedJob.ts", "TypeScript", 0, 19, 0, 0, 0, 0, 0, 1, 20
+"d:\Alexander\caja\my-app\src\features\organization\selectors\getSelectedUnit.ts", "TypeScript", 0, 21, 0, 0, 0, 0, 0, 1, 22
+"d:\Alexander\caja\my-app\src\features\organization\selectors\inputs.ts", "TypeScript", 0, 5, 0, 0, 0, 0, 0, 2, 7
+"d:\Alexander\caja\my-app\src\features\organization\state\index.ts", "TypeScript", 0, 17, 0, 0, 0, 0, 0, 4, 21
+"d:\Alexander\caja\my-app\src\features\payrolls\components\Deductions.tsx", "TypeScript React", 18, 0, 0, 0, 0, 0, 0, 2, 20
+"d:\Alexander\caja\my-app\src\features\payrolls\components\PayrollRoutes.tsx", "TypeScript React", 28, 0, 0, 0, 0, 0, 0, 2, 30
+"d:\Alexander\caja\my-app\src\features\payrolls\components\Payrolls.tsx", "TypeScript React", 24, 0, 0, 0, 0, 0, 1, 2, 27
+"d:\Alexander\caja\my-app\src\features\payrolls\components\WageDetails.tsx", "TypeScript React", 41, 0, 0, 0, 0, 0, 7, 3, 51
+"d:\Alexander\caja\my-app\src\features\payrolls\components\WageForm.tsx", "TypeScript React", 204, 0, 0, 0, 0, 0, 17, 7, 228
+"d:\Alexander\caja\my-app\src\features\payrolls\components\Wages.tsx", "TypeScript React", 28, 0, 0, 0, 0, 0, 0, 1, 29
+"d:\Alexander\caja\my-app\src\features\payrolls\components\WagesList.tsx", "TypeScript React", 58, 0, 0, 0, 0, 0, 2, 2, 62
+"d:\Alexander\caja\my-app\src\features\payrolls\reducers\entities\applicableDeductions.ts", "TypeScript", 0, 19, 0, 0, 0, 0, 0, 2, 21
+"d:\Alexander\caja\my-app\src\features\payrolls\reducers\entities\calculationMethods.ts", "TypeScript", 0, 32, 0, 0, 0, 0, 5, 3, 40
+"d:\Alexander\caja\my-app\src\features\payrolls\reducers\entities\deductions.ts", "TypeScript", 0, 100, 0, 0, 0, 0, 0, 2, 102
+"d:\Alexander\caja\my-app\src\features\payrolls\reducers\entities\index.ts", "TypeScript", 0, 17, 0, 0, 0, 0, 0, 1, 18
+"d:\Alexander\caja\my-app\src\features\payrolls\reducers\entities\payrollEntries.ts", "TypeScript", 0, 11, 0, 0, 0, 0, 0, 2, 13
+"d:\Alexander\caja\my-app\src\features\payrolls\reducers\entities\payrollTypes.ts", "TypeScript", 0, 27, 0, 0, 0, 0, 0, 2, 29
+"d:\Alexander\caja\my-app\src\features\payrolls\reducers\entities\payrolls.ts", "TypeScript", 0, 12, 0, 0, 0, 0, 91, 2, 105
+"d:\Alexander\caja\my-app\src\features\payrolls\reducers\entities\wages.ts", "TypeScript", 0, 85, 0, 0, 0, 0, 0, 2, 87
+"d:\Alexander\caja\my-app\src\features\payrolls\reducers\index.ts", "TypeScript", 0, 11, 0, 0, 0, 0, 0, 4, 15
+"d:\Alexander\caja\my-app\src\features\payrolls\reducers\ui\index.ts", "TypeScript", 0, 7, 0, 0, 0, 0, 0, 1, 8
+"d:\Alexander\caja\my-app\src\features\payrolls\reducers\ui\selectedWageId.ts", "TypeScript", 0, 6, 0, 0, 0, 0, 0, 2, 8
+"d:\Alexander\caja\my-app\src\features\payrolls\reducers\ui\wageForm.ts", "TypeScript", 0, 52, 0, 0, 0, 0, 0, 4, 56
+"d:\Alexander\caja\my-app\src\features\payrolls\selectors\getSelectedWage.ts", "TypeScript", 0, 48, 0, 0, 0, 0, 0, 2, 50
+"d:\Alexander\caja\my-app\src\features\payrolls\selectors\inputSelectors.ts", "TypeScript", 0, 9, 0, 0, 0, 0, 0, 3, 12
+"d:\Alexander\caja\my-app\src\features\payrolls\state\index.ts", "TypeScript", 0, 48, 0, 0, 0, 0, 0, 8, 56
+"d:\Alexander\caja\my-app\src\features\transfers\components\PacientFieldset.tsx", "TypeScript React", 85, 0, 0, 0, 0, 0, 0, 9, 94
+"d:\Alexander\caja\my-app\src\features\transfers\components\TransferForm.tsx", "TypeScript React", 310, 0, 0, 0, 0, 0, 0, 18, 328
+"d:\Alexander\caja\my-app\src\index.css", "CSS", 0, 0, 0, 0, 0, 0, 16, 1, 17
+"d:\Alexander\caja\my-app\src\index.tsx", "TypeScript React", 15, 0, 0, 0, 0, 0, 6, 3, 24
+"d:\Alexander\caja\my-app\src\logo.svg", "XML", 0, 0, 0, 0, 0, 1, 0, 0, 1
+"d:\Alexander\caja\my-app\src\polyfills\String.js", "JavaScript", 0, 0, 8, 0, 0, 0, 8, 4, 20
+"d:\Alexander\caja\my-app\src\react-app-env.d.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 1, 1, 2
+"d:\Alexander\caja\my-app\src\reportWebVitals.ts", "TypeScript", 0, 13, 0, 0, 0, 0, 0, 3, 16
+"d:\Alexander\caja\my-app\src\setupTests.ts", "TypeScript", 0, 1, 0, 0, 0, 0, 4, 1, 6
+"d:\Alexander\caja\my-app\src\simple-sidebar.css", "CSS", 0, 0, 0, 0, 42, 0, 11, 10, 63
+"d:\Alexander\caja\my-app\src\store.ts", "TypeScript", 0, 27, 0, 0, 0, 0, 5, 6, 38
+"d:\Alexander\caja\my-app\src\useCallbackRef.tsx", "TypeScript React", 8, 0, 0, 0, 0, 0, 0, 1, 9
+"Total", "-", 2246, 1421, 8, 3, 347, 1, 607, 321, 4954
