@@ -5,6 +5,8 @@ import PacientFieldset from './PacientFieldset'
 import { PDFViewer } from './../../../commons/components'
 import {useFetch} from'./../../../commons/hooks'
 import {baseUrl} from './../../../configs/app.json'
+import apiClient from '../../../commons/services/apiClient';
+import { useMutation } from 'react-query';
 
 type Doctor = {
   id: number,
@@ -101,26 +103,37 @@ function TransferenciaExternaForm() {
   const a = useRef(Math.random())
   console.log("Random", a)
 
-  const [stateOfSubmit, submit] = useFetch(()=>{
-    return fetch(baseUrl+"/transferencias", {
-      // credentials: 'include',
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        "paciente_id": formState.paciente.id,
-        "doctor_id": formState.doctor.id,
-        "proveedor_id": formState.proveedor.id,
-        "servicios_ids": formState.servicios.map((servicio)=>servicio.id)
-      })
-    })
-  }, [formState])
+  // const [stateOfSubmit, submit] = useFetch(()=>{
+  //   return fetch(baseUrl+"/transferencias", {
+  //     // credentials: 'include',
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       "paciente_id": formState.paciente.id,
+  //       "doctor_id": formState.doctor.id,
+  //       "proveedor_id": formState.proveedor.id,
+  //       "servicios_ids": formState.servicios.map((servicio)=>servicio.id)
+  //     })
+  //   })
+  // }, [formState])
+  const {
+    data: submitResponse,
+    error: submitError,
+    isLoading,
+    mutate: submit
+  } = useMutation((transfer:any)=>apiClient.post('/transferencias', transfer))
 
   const onSubmit = useCallback((e) => {
     e.preventDefault()
-    submit()
-  }, [])
+    submit({
+      "paciente_id": formState.paciente.id,
+      "doctor_id": formState.doctor.id,
+      "proveedor_id": formState.proveedor.id,
+      "servicios_ids": formState.servicios.map((servicio)=>servicio.id)
+    })
+  }, [formState])
 
   const [stateOfLoadInitData, loadData] = useFetch(()=>{
     return Promise.all([
@@ -172,10 +185,10 @@ function TransferenciaExternaForm() {
 
 
   useEffect(()=>{
-    if(stateOfSubmit.data && !stateOfSubmit.error){
+    if(submitResponse?.data){
       showDialog(true)
     }
-  }, [stateOfSubmit])
+  }, [submitResponse])
 
   const renderServicios = ()=>{
     return formState.servicios.map((value, index)=>(
@@ -194,14 +207,14 @@ function TransferenciaExternaForm() {
   }
 
   const renderPdf = () => {
-    const url = stateOfSubmit.data && stateOfSubmit.data.url
+    const url = submitResponse?.data && submitResponse?.data.url
     if(url)
       return url ? <PDFViewer url={url} height={400}></PDFViewer> : null
     else{
       // return <p>{JSON.stringify(stateOfSubmit.data)}</p>
       return <Alert variant="danger" >
-        <p>{stateOfSubmit.data?.message}</p>
-        <p>{JSON.stringify(stateOfSubmit.data?.errors)}</p>
+        <p>{submitResponse?.data?.message}</p>
+        <p>{JSON.stringify(submitResponse?.data?.errors)}</p>
       </Alert>
     }
   }
@@ -209,13 +222,13 @@ function TransferenciaExternaForm() {
   const renderForm = () => {
     return <>
     <Form style={{marginTop:20, marginBottom:20}} onSubmit={onSubmit}>
-      <PacientFieldset disabled={stateOfSubmit.completed === false} paciente={formState.paciente} onChange={(paciente)=>{
+      <PacientFieldset disabled={isLoading} paciente={formState.paciente} onChange={(paciente)=>{
         updateForm({
           ...formState,
           paciente
         })
       }} />
-      <fieldset disabled={stateOfSubmit.completed === false}>
+      <fieldset disabled={isLoading}>
         <legend>Doctor</legend>
         <Form.Group controlId="doctor">
             <Form.Label>Nombre</Form.Label>
@@ -227,7 +240,7 @@ function TransferenciaExternaForm() {
             </Form.Control>
           </Form.Group>
       </fieldset>
-      <fieldset disabled={stateOfSubmit.completed === false}>
+      <fieldset disabled={isLoading}>
         <legend>Servicios</legend>
         <Table>
           <thead>
@@ -286,7 +299,7 @@ function TransferenciaExternaForm() {
           </tbody>
         </Table>
       </fieldset>
-      <fieldset disabled={stateOfSubmit.completed === false}>
+      <fieldset disabled={isLoading}>
         <legend>Proveedor</legend>
         <Form.Group controlId="doctor">
             <Form.Label>Nombre</Form.Label>
@@ -299,7 +312,7 @@ function TransferenciaExternaForm() {
           </Form.Group>
       </fieldset>
       <Button variant="primary" type="submit">
-        {stateOfSubmit.completed === false && <Spinner animation="border" size="sm" />} Guardar
+        {isLoading && <Spinner animation="border" size="sm" />} Guardar
       </Button>
     </Form>
     <Modal

@@ -28,6 +28,13 @@
   color: #61dafb;
 }
 
+.form-label {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%
+}
+
 .list-details .list {
   position: absolute;
   display: flex;
@@ -36,7 +43,7 @@
   top: 0;
   bottom: 0;
   overflow: auto;
-  white-space: nowrap
+  /* white-space: nowrap */
 }
 
 #root {
@@ -96,6 +103,18 @@
   align-items: center;
 }
 
-td .btn-icon {
+/* td .btn-icon {
   padding: .05rem .5rem;
+} */
+
+.list-group.is-invalid,
+.list-group.is-invalid .list-group-item {
+  border-color: #dc3545;
 }
+
+.was-validated .list-group.is-valid,
+.was-validated .list-group.is-valid .list-group-item {
+  border-color: #28a745;
+}
+
+

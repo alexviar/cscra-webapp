@@ -23,7 +23,9 @@ export const SidebarLayout = ({sidebar, children}: Props)=>{
         <Route  path={`${path}/empleados/registrar`}><EmployeeForm /></Route>
         <Route  exact path={`${path}/empleados`}><EmployeesList /></Route>
       </Switch> */}
-      {children}
+      <div className="d-flex flex-column bg-white rounded-lg shadow-sm m-2 p-3 flex-grow-1">
+        {children}
+      </div>
     </Container>
   </div>
 }

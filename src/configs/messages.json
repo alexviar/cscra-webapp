@@ -1,0 +1,6 @@
+{
+  "validation": {
+    "required": "Este campo es requerido.",
+    "maxLength": "Este campo no debe tener mas de {0} caracteres"
+  }
+}

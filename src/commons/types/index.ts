@@ -14,3 +14,16 @@ export type FormState<Fields> = {
     danger?: string
   }
 }
+
+export type Person = {
+  id: number,
+  dniNumber: number,
+  dniComplement: string,
+  dniIssuedAt: string,
+  name: string,
+  middlename: string,
+  lastname: string,
+  dateOfBirth: string,
+  gender: string,
+  nationality: string
+}

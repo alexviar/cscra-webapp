@@ -2,7 +2,9 @@ export type User = {
   id: number,
   username: string,
   active: boolean,
-  external_id: number
+  createdAt: string,
+  updatedAt: string,
+  externalId: number
 }
 
 export type LoginForm = {

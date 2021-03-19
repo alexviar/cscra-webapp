@@ -17,44 +17,38 @@ import { useDispatch, useSelector } from 'react-redux'
 import '../../App.css';
 import '../../simple-sidebar.css'
 import apiClient from '../../commons/services/apiClient';
+import { unauthorized } from '../../features/auth/actions';
+import { useQueryClient } from 'react-query';
 
 export default ()=>{
   const dispatch = useDispatch()
   const user = useSelector(getUser)
-  // const {completed: userLoaded} = useSelector(getStatusOfLoadUser)
 
 
   const toggleSidebar = () => {
-    //setSidebarVisible(visible => !visible)
     dispatch({
       type:"TOGGLE_SIDEBAR"
     })
   }
 
   useEffect(()=>{
+    apiClient.interceptors.response.use(
+      response=>response,
+      error => {
+        console.log("Error Axios", error)
+        if(error.response?.status == 401 || error.response?.status == 419){
+          dispatch(unauthorized())
+        }
+        return Promise.reject(error);
+      }
+    )
+
     const jsonUser = localStorage.getItem("user")
     dispatch({
       type: "SET_USER",
       payload: jsonUser ? JSON.parse(jsonUser) : null
     })
-    // dispatch({
-    //   type: "LOAD_USER"
-    // })
-    // apiClient.get("/user").then(({data})=>{
-    //   dispatch({
-    //     type: "LOAD_USER_COMPLETED",
-    //     payload: data,
-    //     error: false
-    //   })
-    //   // localStorage.setItem("user", JSON.stringify(data))
-    // }, e => {
-    //   console.log(e)
-    //   dispatch({
-    //     type: "LOAD_USER_COMPLETED",
-    //     payload: e,
-    //     error: true
-    //   })
-    // })
+    // apiClient.get('/user')
   }, [])
 
   return <Router>
@@ -120,7 +114,12 @@ export default ()=>{
           <NavDropdown.Item href="#action/3.2">Cuenta</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.3">Configuracion</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item as={Button} className="btn-link" >Cerrar sesión</NavDropdown.Item>
+          <NavDropdown.Item as={Button} className="btn-link" onClick={()=>{
+            apiClient.post("logout").then(()=>{
+              dispatch(unauthorized())
+              localStorage.removeItem("user")
+            })
+          }} >Cerrar sesión</NavDropdown.Item>
         </NavDropdown> : <Nav.Link as={Link} to="/login">Iniciar sesión</Nav.Link>}
       </Nav>
     </Navbar>

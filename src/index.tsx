@@ -1,17 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import store from './store'
-import './index.css';
+import configureStore from './boostrap/store'
 import reportWebVitals from './reportWebVitals';
 import Routes from "./boostrap/components/App"
-import './polyfills/String'
+import './polyfills/String.ts'
+import './index.css';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: (count, error) => {
+        if((error as any).response){
+          return false
+        }
+        return count < 3        
+      }
+    },
+    mutations: {
+      retry: (count, error) => {
+        if((error as any).response){
+          return false
+        }
+        return count < 3     
+      }
+    }
+  }
+})
 
 ReactDOM.render(
   // <React.StrictMode>
-    <Provider store={store}>
+  
+  <QueryClientProvider client={queryClient}>
+    <Provider store={configureStore()}>
       <Routes />
     </Provider>
+  </QueryClientProvider>
   // </React.StrictMode>
   ,
   document.getElementById('root')

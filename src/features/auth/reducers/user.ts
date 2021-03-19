@@ -7,6 +7,8 @@ export default (state: User|null=null, action: any): User|null => {
     case "LOGIN_COMPLETED":
     case "LOAD_USER_COMPLETED":
       return error ? state : payload
+    case "UNAUTHORIZED":
+      return null
     default:
       return state
   }

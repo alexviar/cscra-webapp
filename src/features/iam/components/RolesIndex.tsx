@@ -1,31 +1,62 @@
-import React from 'react'
-import { Tab } from 'react-bootstrap'
-import { useSelector } from 'react-redux'
-// import { WageDetails } from './WageDetails'
-// import { WagesList } from './WagesList'
-// import { getWages } from '../selectors/inputSelectors'
+import React, { useEffect } from 'react'
+import { Button, Spinner, Tab } from 'react-bootstrap'
+import { FaPlus } from 'react-icons/fa'
+import { useQuery } from 'react-query'
+import { useHistory, useLocation } from 'react-router'
+import { Link } from 'react-router-dom'
+import { Roles } from '../services'
+import { RolesList } from './RolesList'
+import { RoleView } from './RoleView'
 
 export default ()=>{
-  // const wages = useSelector(getWages)
-  // return <div className="d-flex flex-column bg-white rounded-lg shadow-sm m-2 p-3 flex-grow-1">
-  // <h1 style={{fontSize: "2rem"}}>Bonos</h1>
-  // <Tab.Container transition={false} >
-  //   <div className="list-details position-relative d-flex flex-grow-1">
-  //     <div className="list border">
-  //       <WagesList />
-  //     </div>
-  //     <Tab.Content className="p-3 border flex-grow-1"  style={{marginLeft: "11rem"}}>
-  //       {
-  //         wages.map(w=>{
-  //           return <Tab.Pane eventKey={`#${w.id}`}>
-  //             <WageDetails key={w.id} wageId={w.id} />
-  //           </Tab.Pane>
-  //         })
-  //       }
-  //     </Tab.Content>
-  //   </div>
-  // </Tab.Container>
-  // </div>
+  const history = useHistory()
+  const { hash, pathname } = history.location//useLocation()
+  const fetchRoles = useQuery("fetchRoles", ()=>{
+    return Roles.fetchAll()
+  }, {
+    enabled: false,
+    refetchOnWindowFocus: false
+  })
 
-  return null
+  useEffect(()=>{
+    fetchRoles.refetch()
+  }, [])
+
+  const roles = fetchRoles.data?.data || []
+
+  return <>
+  {/* <h1 className="mb-2" style={{fontSize: "2rem"}}>Roles</h1> */}
+  <div className="mb-2 d-flex flex-nowrap" >
+      <h2 className="d-inline-block" style={{fontSize: "2rem"}}>Roles</h2>
+      <Button as={Link} to={{
+          pathname:"/iam/roles/crear",
+          state: {
+            from: pathname
+          }
+        }}
+        className="ml-auto my-auto" 
+        variant="primary"
+      >
+        <FaPlus />
+      </Button>
+    </div>
+  <Tab.Container defaultActiveKey={hash} transition={false} >
+    <div className="list-details position-relative d-flex flex-grow-1">
+      <div className="list border">
+        {fetchRoles.isFetching ? 
+          <Spinner animation="border" variant="primary" className="m-auto"/> : 
+          <RolesList roles={roles} />}
+      </div>
+      <Tab.Content className="p-3 border flex-grow-1 overflow-auto"  style={{marginLeft: "11rem"}}>
+        {
+          roles.map(role=>{
+            return <Tab.Pane key={role.id} eventKey={`#${role.id}`}>
+              <RoleView roleId={role.id} />
+            </Tab.Pane>
+          })
+        }
+      </Tab.Content>
+    </div>
+  </Tab.Container>
+  </>
 } 
